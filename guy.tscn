@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceqfuuyqt4a6c"]
+
+[ext_resource type="Script" uid="uid://tey2yycmr3bm" path="res://guy.gd" id="1_8h3iv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8h3iv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8h3iv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ihqf1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8h3iv"]
+size = Vector2(64, 64)
+
+[sub_resource type="PrismMesh" id="PrismMesh_8h3iv"]
+size = Vector3(1, 1.5, 0.25)
+
+[node name="Guy" type="CharacterBody3D"]
+script = ExtResource("1_8h3iv")
+metadata/_custom_type_script = "uid://tey2yycmr3bm"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_8h3iv")
+
+[node name="body" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_8h3iv")
+skeleton = NodePath("../..")
+
+[node name="head" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02921, 0)
+mesh = SubResource("SphereMesh_ihqf1")
+skeleton = NodePath("../..")
+
+[node name="thoughts" type="Sprite3D" parent="head"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+texture = SubResource("PlaceholderTexture2D_8h3iv")
+
+[node name="label" type="Label3D" parent="head"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+billboard = 1
+font_size = 128
+
+[node name="arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1.32122)
+visible = false
+mesh = SubResource("PrismMesh_8h3iv")
+
+[node name="idle_timer" type="Timer" parent="."]
+unique_name_in_owner = true

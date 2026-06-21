@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://cheeo672dee7v"]
+
+[ext_resource type="PackedScene" uid="uid://ceqfuuyqt4a6c" path="res://guy.tscn" id="1_itk02"]
+[ext_resource type="Script" uid="uid://dolwbryvbugia" path="res://camera_3d.gd" id="2_uoqbt"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_itk02"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1ds6"]
+sky_top_color = Color(0, 0.490196, 1, 1)
+sky_horizon_color = Color(0.825275, 0.830928, 0.839856, 1)
+sky_curve = 0.0100479
+ground_bottom_color = Color(2.5028e-06, 0.783668, 0.266174, 1)
+ground_horizon_color = Color(0.648592, 1, 0.671903, 1)
+sun_angle_max = 5.0
+
+[sub_resource type="Sky" id="Sky_itk02"]
+sky_material = SubResource("ProceduralSkyMaterial_a1ds6")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_uoqbt"]
+background_mode = 2
+background_intensity = 1.0
+sky = SubResource("Sky_itk02")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("WorldBoundaryShape3D_itk02")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uoqbt")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.949266, 0.314474, 0, -0.314474, 0.949266, -1.43423, 30.5746, 41.1613)
+fov = 37.8493
+script = ExtResource("2_uoqbt")
+
+[node name="Guy" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy2" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy3" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy4" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy5" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy6" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy7" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy8" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy9" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy10" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy11" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy12" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy13" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy14" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy15" parent="." instance=ExtResource("1_itk02")]
+
+[node name="Guy16" parent="." instance=ExtResource("1_itk02")]
